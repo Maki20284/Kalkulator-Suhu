@@ -10,6 +10,12 @@ textarea{
     height: 75px;
 }
 
+.input-area input{
+    resize:none;
+    width: 390px;
+    height: 75px;
+}
+
 .container{
     padding: 70px 0;
     margin: 0 auto;
@@ -95,7 +101,14 @@ header{
 }
 
 .error {
-    color: red;
+    color: #FF7B23;
+    display: block;
+    margin-top: 5px;
+    width: 350px;
+}
+
+.input-area span{
+    text-align: left;
 }
 
 .option-prompt button{
