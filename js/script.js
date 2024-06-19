@@ -29,8 +29,8 @@ function back(){
 function convertCelcius(){
     let celciusValue = document.getElementById("input-celcius").value;
     let celciusNum = Number(celciusValue);
-    fahrenheit = (celciusNum * (9/5)) + 32;
-    fahrenheitString = fahrenheit.toString();
+    let fahrenheit = (celciusNum * (9/5)) + 32;
+    let fahrenheitString = fahrenheit.toString();
     document.getElementById("output-fahrenheit").value = fahrenheitString;
     document.getElementById("calculation-fahrenheit").value = `${celciusValue}℃ * (9/5) + 32 = ${fahrenheitString}℉`
 }
@@ -38,15 +38,15 @@ function convertCelcius(){
 function convertFahrenheit(){
     let fahrenheitValue = document.getElementById("input-fahrenheit").value;
     let fahrenheitNum = Number(fahrenheitValue);
-    celcius = (fahrenheitNum - 32) * (5/9);
-    celciusString = celcius.toString();
+    let celcius = (fahrenheitNum - 32) * (5/9);
+    let celciusString = celcius.toString();
     document.getElementById("output-celcius").value = celciusString;
     document.getElementById("calculation-celcius").value = `(${fahrenheitValue}℉ - 32) * (5/9) = ${celciusString}℃`
 }
 
 function resetCelcius(){
-    celciusNum = 0;
-    fahrenheit = 0;
+    // celciusNum = 0;
+    // fahrenheit = 0;
     
     document.getElementById("input-celcius").value = '';
     document.getElementById("output-fahrenheit").value = '';
@@ -54,10 +54,30 @@ function resetCelcius(){
 }
 
 function resetFahrenheit(){
-    celcius = 0;
-    fahrenheitNum = 0;
+    // celcius = 0;
+    // fahrenheitNum = 0;
 
     document.getElementById("input-fahrenheit").value = '';
     document.getElementById("output-celcius").value = '';
     document.getElementById("calculation-celcius").value = '';
+}
+
+function validateForm() {
+    const temperatureInput = document.getElementById('temperature');
+    const errorMessage = document.getElementById('error-message');
+    const temperatureValue = parseFloat(temperatureInput.value);
+
+    errorMessage.textContent = '';
+
+    if (isNaN(temperatureValue)) {
+        errorMessage.textContent = 'Please enter a valid number.';
+        return false;
+    }
+
+    if (temperatureValue < -273.15) {
+        errorMessage.textContent = 'Temperature cannot be below absolute zero (-273.15°C).';
+        return false;
+    }
+
+    return true;
 }

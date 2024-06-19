@@ -17,14 +17,15 @@
         </header>
         <div class="content">
             <p>Masukkan suhu derajat Celsius (℃) ke kotak dibawah, lalu klik tombol 'Konversi' untuk mendapatkan hasil konversi dalam bentuk Fahrenheit(℉).</p>
-            <div class="input-area">
+            <form class="input-area" onsubmit="return validateForm()">
                 <p>Celsius(℃):</p>
-                <textarea id="input-celcius"></textarea>
+                <input type="number" id="input-celcius" name="temperature" required min="-273.15"></input>
+                <span id="error-message" class="error"></span>
                 <div class="input-button">
-                    <button onclick="convertCelcius()">Konversi</button>
+                    <button type="submit" onclick="convertCelcius()">Konversi</button>
                     <button onclick="resetCelcius()">Reset</button>
                 </div>
-            </div>
+            </form>
             <div class="output-area">
                 <p>Fahrenheit(℉):</p>
                 <textarea id="output-fahrenheit" readonly></textarea>
